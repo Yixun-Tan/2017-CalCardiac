@@ -1,0 +1,9 @@
+Requires an installation of nodejs.
+
+Directions:
+
+1. run "npm install" from a console in this folder
+2. place the json array of each alarm in a separate .json or .txt file in a folder named "alarms"
+3. run "node generate_images.js" from a console
+
+Images should be generated in the "alarm_images" folder.
