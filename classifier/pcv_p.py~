@@ -1,0 +1,83 @@
+import tensorflow as tf
+
+class pvc_p(object):
+
+    def __init__(self):
+        # Data Inputs and Parameters
+        N = 1000 # Mini-batch size
+        T = 2400 # Number of samples/dimension of input space
+        C = 1    # Number of channels
+        
+        self.input_shape = [N, T, 1]
+        self.X_in = tf.placeholder(dtype=tf.float32, shape=self.input_shape)
+        self.y_in = tf.placeholder(dtype=tf.float32, shape=[self.input_shape[0]])
+        
+        # Model Hyperparameters/Approximation
+        self.learning_rate = 1.0
+        self.regularization_rate = 1.0
+        self.param_std_dev = 0.1
+        self.layer_1_shape = [3,  # Filter width 
+                              1,  # Input channels
+                              10] # Output channels        
+        
+        # Model Parameters/Decision Variables
+        self.layer_1_filters = tf.Variable(tf.random_normal(shape=layer_1_shape, mean=0, stddev=self.param_std_dev,
+                                                            dtype=tf.float32), dtype=tf.float32)
+
+        # Forward pass
+        self.X_1 = tf.nn.conv2d(value=self.X_in,
+                                filters=self.layer_1_filters,
+                                stride=1,
+                                padding='VALID')
+
+        
+        
+    def sgd_update(self, X_instance, y_instance):
+        pass
+
+
+def main():
+    print('Training REPL for CalCardiac PVC classifier')
+    __doc__ = """
+              Available Commands:
+                 get:
+                     help:    show this help documentation
+                     status:  show status of tensorflow model
+                     param:   show parameters of tf model
+
+                 set:     
+                     param:   set parameters of tf model
+                     init:    initialize or reinitialize session (loss warning)
+
+                 save:        save current session
+                 exit:        exit
+
+                 For example: type 'get param' to display current hyperparameters
+              """
+    
+    while True: # Looop
+        # Read
+        selection = input('CalCardiac>>> ')
+        # Eval & Print
+        
+        if selection.strip()[0].startswith('get'):
+            if selection.strip()[1].startswith('help'):
+                print(__doc__)
+            elif selection.strip()[1].startswith('status'):
+                print('not yet implemented')
+                
+        elif selection.strip()[0].startswith('set'):
+            if selection.strip()[1].startswith('param'):
+                print('not yet implemented')
+                
+        elif selection.startswith('save'):
+            print('not yet implemented')            
+        
+        elif selection == 'exit':
+            print('have a nice day')
+            exit()
+        else:
+            print('command not recognized. type "help" for help')
+            
+if __name__ == '__main__':
+    main()
