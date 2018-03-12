@@ -1,46 +1,50 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ref.aux
 The style file: apalike.bst
-Database file #1: nips_dbn.bib
-You've used 1 entry,
+Database file #1: calcardiac.bib
+Warning--empty publisher in Graham2015
+Warning--empty publisher in Malmivuo1995
+Warning--there's a number but no volume in Snow2008
+You've used 30 entries,
             1935 wiz_defined-function locations,
-            477 strings with 3786 characters,
-and the built_in function-call counts, 319 in all, are:
-= -- 28
-> -- 7
-< -- 1
-+ -- 2
-- -- 2
-* -- 18
-:= -- 60
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 18
-empty$ -- 30
-format.name$ -- 3
-if$ -- 63
-int.to.chr$ -- 1
+            667 strings with 10217 characters,
+and the built_in function-call counts, 12560 in all, are:
+= -- 1190
+> -- 677
+< -- 20
++ -- 240
+- -- 238
+* -- 1103
+:= -- 2235
+add.period$ -- 81
+call.type$ -- 30
+change.case$ -- 267
+chr.to.int$ -- 28
+cite$ -- 33
+duplicate$ -- 437
+empty$ -- 763
+format.name$ -- 276
+if$ -- 2390
+int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 3
-pop$ -- 10
+missing$ -- 25
+newline$ -- 144
+num.names$ -- 90
+pop$ -- 249
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 269
 quote$ -- 0
-skip$ -- 10
+skip$ -- 334
 stack$ -- 0
-substring$ -- 12
-swap$ -- 1
-text.length$ -- 0
+substring$ -- 731
+swap$ -- 59
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
-warning$ -- 0
-while$ -- 2
+type$ -- 176
+warning$ -- 3
+while$ -- 96
 width$ -- 0
-write$ -- 14
+write$ -- 364
+(There were 3 warnings)

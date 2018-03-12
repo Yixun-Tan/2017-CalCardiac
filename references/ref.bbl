@@ -1,8 +1,181 @@
 \begin{thebibliography}{}
 
-\bibitem[Hinton, 2007]{Hinton2007}
-Hinton, G. (2007).
-\newblock {2007 NIPS Tutorial on: Deep Belief Nets}.
-\newblock In {\em 2007 NIPS Tutorial on: Deep Belief Nets}.
+\bibitem[Bai et~al., 2017]{Bai2017}
+Bai, Y., Do, D., Ding, Q., Palacios, J.~A., Shahriari, Y., Pelter, M.~M.,
+  Boyle, N., Fidler, R., and Hu, X. (2017).
+\newblock {Is the Sequence of SuperAlarm Triggers More Predictive Than Sequence
+  of the Currently Utilized Patient Monitor Alarms?}
+\newblock {\em IEEE Transactions on Biomedical Engineering}, 64(5):1023--1032.
+
+\bibitem[{CAST Investigators}, 1989]{CASTInvestigators1989}
+{CAST Investigators} (1989).
+\newblock {Effect of Encainide and Flecainide on Mortality in a Randomised
+  Trial of Arrhythmia Supression After Myocardial Infarction}.
+\newblock {\em The New England Journal of Medicine}, 321(6):406--412.
+
+\bibitem[{De Oliveira} et~al., 2008]{DeOliveira2008}
+{De Oliveira}, L., Andre{\~{a}}o, R., and Sarcinelli-Filho, M. (2008).
+\newblock {Classification of premature ventricular beat using Bayesian
+  networks}.
+\newblock In {\em HEALTHINF 2008 - 1st International Conference on Health
+  Informatics, Proceedings}.
+
+\bibitem[de~Oliveira et~al., 2011]{DeOliveira2011}
+de~Oliveira, L. S.~C., Andreao, R.~V., and Sarcinelli-Filho, M. (2011).
+\newblock {Premature Ventricular beat classification using a dynamic Bayesian
+  Network.}
+\newblock {\em Conference proceedings : ... Annual International Conference of
+  the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in
+  Medicine and Biology Society. Annual Conference}, 2011:4984--4987.
+
+\bibitem[Drew et~al., 2014]{Drew2014}
+Drew, B.~J., Harris, P., Z{\`{e}}gre-Hemsey, J.~K., Mammone, T., Schindler, D.,
+  Salas-Boni, R., Bai, Y., Tinoco, A., Ding, Q., and Hu, X. (2014).
+\newblock {Insights into the problem of alarm fatigue with physiologic monitor
+  devices: A comprehensive observational study of consecutive intensive care
+  unit patients}.
+\newblock {\em PLoS ONE}, 9(10).
+
+\bibitem[Goldberger et~al., 2000]{Goldberger2000}
+Goldberger, A.~L., Amaral, L. A.~N., Glass, L., Hausdorff, J.~M., Ivanov,
+  P.~C., Mark, R.~G., Mietus, J.~E., Moody, G.~B., Peng, C.-K., and Stanley,
+  H.~E. (2000).
+\newblock {PhysioBank, PhysioToolkit, and PhysioNet : Components of a New
+  Research Resource for Complex Physiologic Signals}.
+\newblock {\em Circulation}, 101(23):e215--e220.
+
+\bibitem[{Goodfellow, Ian, Bengio, Yoshua, Courville},
+  2016]{GoodfellowIanBengioYoshuaCourville2016}
+{Goodfellow, Ian, Bengio, Yoshua, Courville}, A. (2016).
+\newblock {Deep Learning}.
+\newblock {\em MIT Press}.
+
+\bibitem[Graham et~al., 2015]{Graham2015}
+Graham, R., Mccoy, M.~A., and Schultz, A.~M. (2015).
+\newblock {\em {Strategies to Improve Cardiac Arrest Survival : A Time to
+  Act}}.
+
+\bibitem[Hu et~al., 2012]{Hu2012}
+Hu, X., Sapo, M., Nenov, V., Barry, T., Kim, S., Do, D.~H., Boyle, N., and
+  Martin, N. (2012).
+\newblock {Predictive combinations of monitor alarms preceding in-hospital code
+  blue events}.
+\newblock {\em Journal of Biomedical Informatics}, 45(5):913--921.
+
+\bibitem[IBISWorld, 2018a]{IBISWorld2018a}
+IBISWorld (2018a).
+\newblock {US INDUSTRY REPORTS (NAICS) -- Hospitals}.
+
+\bibitem[IBISWorld, 2018b]{IBISWorld2018}
+IBISWorld (2018b).
+\newblock {US INDUSTRY REPORTS (NAICS) -- Medical Device Manufacturing}.
+
+\bibitem[Isin and Ozdalili, 2017]{Isin2017}
+Isin, A. and Ozdalili, S. (2017).
+\newblock {Cardiac arrhythmia detection using deep learning}.
+\newblock In {\em Procedia Computer Science}, volume 120, pages 268--275.
+
+\bibitem[Jun et~al., 2017]{Jun2017}
+Jun, T.~J., Park, H.~J., Minh, N.~H., Kim, D., and Kim, Y.~H. (2017).
+\newblock {Premature ventricular contraction beat detection with deep neural
+  networks}.
+\newblock In {\em Proceedings - 2016 15th IEEE International Conference on
+  Machine Learning and Applications, ICMLA 2016}, pages 859--864.
+
+\bibitem[Krizhevsky et~al., 2012]{Krizhevsky2012}
+Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
+\newblock {Alexnet}.
+\newblock {\em Advances In Neural Information Processing Systems}, pages 1--9.
+
+\bibitem[Limited, 2018]{Limited2018}
+Limited, D.~T. (2018).
+\newblock {DeepMind}.
+
+\bibitem[Maaten and Hinton, 2008]{Maaten2008}
+Maaten, L. V.~D. and Hinton, G. (2008).
+\newblock {Visualizing Data using t-SNE}.
+\newblock {\em Journal of Machine Learning Research 1}, 620(1):267--84.
+
+\bibitem[Maier, 2015a]{Maier2015}
+Maier, S. (2015a).
+\newblock {Extra Heartbeats Could Be Modifiable Risk Factor for Congestive
+  Heart Failure}.
+
+\bibitem[Maier, 2015b]{Maier2015a}
+Maier, S. (2015b).
+\newblock {Extra Heartbeats Could Be Modifiable Risk Factor for Congestive
+  Heart Failure | UC San Francisco}.
+
+\bibitem[Malmivuo and Plonsey, 1995]{Malmivuo1995}
+Malmivuo, J. and Plonsey, R. (1995).
+\newblock {\em {Bioelectromagnetism}}, volume~15.
+
+\bibitem[Moody and Mark, 2001]{Moody2001}
+Moody, G.~B. and Mark, R.~G. (2001).
+\newblock {The impact of the MIT-BIH arrhythmia database}.
+
+\bibitem[Rajpurkar et~al., 2017]{Rajpurkar2017}
+Rajpurkar, P., Hannun, A.~Y., Haghpanahi, M., Bourn, C., and Ng, A.~Y. (2017).
+\newblock {Cardiologist-Level Arrhythmia Detection with Convolutional Neural
+  Networks}.
+\newblock {\em stanfordmlgroup}.
+
+\bibitem[Salas-Boni et~al., 2014]{Salas-Boni2014}
+Salas-Boni, R., Bai, Y., Harris, P. R.~E., Drew, B.~J., and Hu, X. (2014).
+\newblock {False ventricular tachycardia alarm suppression in the ICU based on
+  the discrete wavelet transform in the ECG signal}.
+\newblock {\em Journal of Electrocardiology}, 47(6):775--780.
+
+\bibitem[Salas-Boni et~al., 2015]{Salas-Boni2015}
+Salas-Boni, R., Bai, Y., and Hu, X. (2015).
+\newblock {Cumulative Time Series Representation for Code Blue prediction in
+  the Intensive Care Unit.}
+\newblock {\em AMIA Joint Summits on Translational Science proceedings. AMIA
+  Joint Summits on Translational Science}, 2015:162--7.
+
+\bibitem[Service et~al., 2013]{Service2013}
+Service, C., Us, A., and Locations, G. (2013).
+\newblock {Insights {\&} Publications How big data can revolutionize
+  pharmaceutical R {\&} D}.
+\newblock {\em McKinsey Global Institute}, pages 1--5.
+
+\bibitem[Shahriari et~al., 2017]{Shahriari2017}
+Shahriari, Y., Fidler, R., Pelter, M., Bai, Y., Villaroman, A., and Hu, X.
+  (2017).
+\newblock {Electrocardiogram Signal Quality Assessment Based on Structural
+  Image Similarity Metric}.
+\newblock {\em IEEE Transactions on Biomedical Engineering}.
+
+\bibitem[Snow et~al., 2008]{Snow2008}
+Snow, R., O'Connor, B., Jurafsky, D., and a.Y. Ng (2008).
+\newblock {Cheap and fast—but is it good?: evaluating non-expert annotations
+  for natural language tasks}.
+\newblock {\em Proceedings of the Conference on Empirical Methods in Natural
+  Language Processing}, (October):254--263.
+
+\bibitem[Szegedy et~al., 2015]{Szegedy2015}
+Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., Erhan, D.,
+  Vanhoucke, V., and Rabinovich, A. (2015).
+\newblock {Going deeper with convolutions}.
+\newblock In {\em Proceedings of the IEEE Computer Society Conference on
+  Computer Vision and Pattern Recognition}, volume 07-12-June, pages 1--9.
+
+\bibitem[Wallis, 2010]{Wallis2010}
+Wallis, L. (2010).
+\newblock {Alarm Fatigue Linked to Patient's Death. }.
+\newblock {\em American Journal of Nursing}, 110(7):16.
+
+\bibitem[Winters et~al., 2018]{Winters2018}
+Winters, B.~D., Cvach, M.~M., Bonafide, C.~P., Hu, X., Konkani, A., O'Connor,
+  M.~F., Rothschild, J.~M., Selby, N.~M., Pelter, M.~M., McLean, B., and
+  Kane-Gill, S.~L. (2018).
+\newblock {Technological Distractions (Part 2): A Summary of Approaches to
+  Manage Clinical Alarms with Intent to Reduce Alarm Fatigue}.
+
+\bibitem[yan Zhou et~al., 2017]{Zhou2017}
+yan Zhou, F., peng Jin, L., and Dong, J. (2017).
+\newblock {Premature ventricular contraction detection combining deep neural
+  networks and rules inference}.
+\newblock {\em Artificial Intelligence in Medicine}, 79:42--51.
 
 \end{thebibliography}
