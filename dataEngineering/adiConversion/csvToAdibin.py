@@ -152,7 +152,7 @@ Create ADIBIN Function
 '''
 
 def createAdibin(data_dict, dbg=False):
-    
+       
     ############################################################################
     # Define default adibin file header variables
     ############################################################################
@@ -186,31 +186,32 @@ def createAdibin(data_dict, dbg=False):
     
     # Define default channel header variables
     # channel_title passed in dict
-    units = {'I':b'mV'
-             , 'II':b'mV'
-             , 'III':b'mV'
-             , 'V':b'mV'
-             , 'AVR':b'mV'
-             , 'AVL':b'mV'
-             , 'AVF':b'mV'
-             , 'AR2':b'mmHg'
-             , 'SPO2':b'%'
-             , 'RR':b'Imp'
-             , 'RESP':b'Imp'
-             , 'CVP1':b'cmH2O'              
+    units = {'I':b'mV' \
+             , 'II':b'mV' \
+             , 'III':b'mV' \
+             , 'V':b'mV' \
+             , 'AVR':b'mV' \
+             , 'AVL':b'mV' \
+             , 'AVF':b'mV'  \
+             , 'AR2':b'mmHg' \
+             , 'SPO2':b'%' \
+             , 'RR':b'Imp' \
+             , 'RESP':b'Imp' \
+             , 'CVP1':b'cmH2O' \
+             
              }
-    scale = {'I': 2.44
-             , 'II': 2.44
-             , 'III': 2.44
-             , 'V': 2.44
-             , 'AVR': 2.44
-             , 'AVL': 2.44
-             , 'AVF': 2.44
-             , 'AR2': 0.2
-             , 'SPO2': 1.0
-             , 'RR': 0.1
-             , 'RESP': 0.1
-             , 'CVP1': 1.0
+    scale = {'I': 2.44 \
+             , 'II': 2.44 \
+             , 'III': 2.44 \
+             , 'V': 2.44 \
+             , 'AVR': 2.44 \
+             , 'AVL': 2.44 \
+             , 'AVF': 2.44  \
+             , 'AR2': 0.2 \
+             , 'SPO2': 1.0 \
+             , 'RR': 0.1 \
+             , 'RESP': 0.1 \
+             , 'CVP1': 1.0 \
              }
     offset = 0
     range_high = 1
@@ -222,21 +223,18 @@ def createAdibin(data_dict, dbg=False):
     # Create units and scales fields from channel titles  passed in dict
     ############################################################################
     
+    # If the channel title being passed is not present in the units or scale
+    #  dictionaries, these statements will fail
+    
     # Channel units
     channel_units = []
     for i in range(data_dict['num_channels']):
-        try:
-            channel_units.append(units[data_dict['channel_titles'][i]])
-        except:
-            channel_units.append(b'MystUnits')
+        channel_units.append(units[data_dict['channel_titles'][i]])
         
     # Channel scales
     channel_scales = []
     for i in range(data_dict['num_channels']):
-        try:
-            channel_scales.append(scale[data_dict['channel_titles'][i]])
-        except:
-            channel_scales.append(1.0)
+        channel_scales.append(scale[data_dict['channel_titles'][i]])
             
    
     ############################################################################
@@ -247,7 +245,7 @@ def createAdibin(data_dict, dbg=False):
     bin_channel_titles = []
     for i in range(data_dict['num_channels']):
         bin_channel_titles.append(\
-            data_dict['channel_titles'][i].encode('utf-8'))
+                                data_dict['channel_titles'][i].encode('utf-8'))
     
     ############################################################################
     # Append all adibin fields to list of lists
@@ -315,8 +313,8 @@ def createAdibin(data_dict, dbg=False):
         channel_headers_format_string += ADI_CHANNEL_HEADER_FORMAT_STRING[1:]
     
     # Create placeholder buffer of the right size
-    channel_headers_buffer = bytearray((data_dict['num_channels'])\
-                                       *CHANNEL_HEADER_LENGTH)
+    channel_headers_buffer = bytearray((data_dict['num_channels']) \
+                                       * CHANNEL_HEADER_LENGTH)
     
     # Pack channel headers
     struct.pack_into(channel_headers_format_string
