@@ -529,7 +529,7 @@ def csvToAdibin(csv_in_directory_path, adibin_out_directory_path, dbg=False):
                         os.makedirs(os.path.dirname("./problemPickles/"), exist_ok=True)
                         # Write csv row to pickle
                         pickleMe(parseCsv(row, dbg=False)
-                                 , csv_basename
+                                 , admission_id
                                  , "./problemPickles/"
                                  , dbg=False
                                  )
