@@ -205,6 +205,9 @@ def createAdibin(data_dict, dbg=False):
              , 'AVR':b'mV' \
              , 'AVL':b'mV' \
              , 'AVF':b'mV'  \
+             , 'SPO2':b'%' \
+             , 'RR':b'Imp' \
+             , 'RESP':b'Imp' \
              , 'AR1':b'mmHg' \
              , 'AR2':b'mmHg' \
              , 'AR3':b'mmHg' \
@@ -213,11 +216,39 @@ def createAdibin(data_dict, dbg=False):
              , 'AR6':b'mmHg' \
              , 'AR7':b'mmHg' \
              , 'AR8':b'mmHg' \
-             , 'SPO2':b'%' \
-             , 'RR':b'Imp' \
-             , 'RESP':b'Imp' \
-             , 'CVP1':b'cmH2O' \
-             
+             , 'CVP1':b'mmHg' \
+             , 'CVP2':b'mmHg' \
+             , 'CVP3':b'mmHg' \
+             , 'CVP4':b'mmHg' \
+             , 'CVP5':b'mmHg' \
+             , 'CVP6':b'mmHg' \
+             , 'CVP7':b'mmHg' \
+             , 'CVP8':b'mmHg' \
+             , 'FEM1':b'mmHg' \
+             , 'FEM2':b'mmHg' \
+             , 'FEM3':b'mmHg' \
+             , 'FEM4':b'mmHg' \
+             , 'FEM5':b'mmHg' \
+             , 'FEM6':b'mmHg' \
+             , 'FEM7':b'mmHg' \
+             , 'FEM8':b'mmHg' \
+             , 'ICT1':b'mmHg' \
+             , 'ICT2':b'mmHg' \
+             , 'ICT3':b'mmHg' \
+             , 'ICT4':b'mmHg' \
+             , 'ICT5':b'mmHg' \
+             , 'ICT6':b'mmHg' \
+             , 'ICT7':b'mmHg' \
+             , 'ICT8':b'mmHg' \
+             , 'PA1':b'mmHg' \
+             , 'PA2':b'mmHg' \
+             , 'PA3':b'mmHg' \
+             , 'PA4':b'mmHg' \
+             , 'PA5':b'mmHg' \
+             , 'PA6':b'mmHg' \
+             , 'PA7':b'mmHg' \
+             , 'PA8':b'mmHg' \
+             , '':b'blank' \
              }
     scale = {'I': 2.44 \
              , 'II': 2.44 \
@@ -226,6 +257,9 @@ def createAdibin(data_dict, dbg=False):
              , 'AVR': 2.44 \
              , 'AVL': 2.44 \
              , 'AVF': 2.44  \
+             , 'SPO2': 1.0 \
+             , 'RR': 0.1 \
+             , 'RESP': 0.1 \
              , 'AR1': 0.2 \
              , 'AR2': 0.2 \
              , 'AR3': 0.2 \
@@ -234,10 +268,39 @@ def createAdibin(data_dict, dbg=False):
              , 'AR6': 0.2 \
              , 'AR7': 0.2 \
              , 'AR8': 0.2 \
-             , 'SPO2': 1.0 \
-             , 'RR': 0.1 \
-             , 'RESP': 0.1 \
-             , 'CVP1': 1.0 \
+             , 'CVP1': 0.2 \
+             , 'CVP2': 0.2 \
+             , 'CVP3': 0.2 \
+             , 'CVP4': 0.2 \
+             , 'CVP5': 0.2 \
+             , 'CVP6': 0.2 \
+             , 'CVP7': 0.2 \
+             , 'CVP8': 0.2 \
+             , 'FEM1': 0.2 \
+             , 'FEM2': 0.2 \
+             , 'FEM3': 0.2 \
+             , 'FEM4': 0.2 \
+             , 'FEM5': 0.2 \
+             , 'FEM6': 0.2 \
+             , 'FEM7': 0.2 \
+             , 'FEM8': 0.2 \
+             , 'ICT1': 0.2 \
+             , 'ICT2': 0.2 \
+             , 'ICT3': 0.2 \
+             , 'ICT4': 0.2 \
+             , 'ICT5': 0.2 \
+             , 'ICT6': 0.2 \
+             , 'ICT7': 0.2 \
+             , 'ICT8': 0.2 \
+             , 'PA1': 0.2 \
+             , 'PA2': 0.2 \
+             , 'PA3': 0.2 \
+             , 'PA4': 0.2 \
+             , 'PA5': 0.2 \
+             , 'PA6': 0.2 \
+             , 'PA7': 0.2 \
+             , 'PA8': 0.2 \
+             , '': 1.0 \
              }
     offset = 0
     range_high = 1
