@@ -4,8 +4,20 @@ Import Packages
 ********************************************************************************
 '''
 
-import struct, csv, json, base64, zlib, pprint, numpy, ctypes, glob, os, sys
-import time
+import struct\
+    , csv\
+    , json\
+    , base64\
+    , zlib\
+    , pprint\
+    , numpy\
+    , ctypes\
+    , glob\
+    , os\
+    , sys\
+    , time\
+    , sqlite3\
+    , pickle
 
 
 '''
@@ -152,7 +164,7 @@ Create ADIBIN Function
 '''
 
 def createAdibin(data_dict, dbg=False):
-    
+       
     ############################################################################
     # Define default adibin file header variables
     ############################################################################
@@ -186,31 +198,109 @@ def createAdibin(data_dict, dbg=False):
     
     # Define default channel header variables
     # channel_title passed in dict
-    units = {'I':b'mV'
-             , 'II':b'mV'
-             , 'III':b'mV'
-             , 'V':b'mV'
-             , 'AVR':b'mV'
-             , 'AVL':b'mV'
-             , 'AVF':b'mV'
-             , 'AR2':b'mmHg'
-             , 'SPO2':b'%'
-             , 'RR':b'Imp'
-             , 'RESP':b'Imp'
-             , 'CVP1':b'cmH2O'              
+    units = {'I':b'mV' \
+             , 'II':b'mV' \
+             , 'III':b'mV' \
+             , 'V':b'mV' \
+             , 'AVR':b'mV' \
+             , 'AVL':b'mV' \
+             , 'AVF':b'mV'  \
+             , 'SPO2':b'%' \
+             , 'RR':b'Imp' \
+             , 'RESP':b'Imp' \
+             , 'AR1':b'mmHg' \
+             , 'AR2':b'mmHg' \
+             , 'AR3':b'mmHg' \
+             , 'AR4':b'mmHg' \
+             , 'AR5':b'mmHg' \
+             , 'AR6':b'mmHg' \
+             , 'AR7':b'mmHg' \
+             , 'AR8':b'mmHg' \
+             , 'CVP1':b'mmHg' \
+             , 'CVP2':b'mmHg' \
+             , 'CVP3':b'mmHg' \
+             , 'CVP4':b'mmHg' \
+             , 'CVP5':b'mmHg' \
+             , 'CVP6':b'mmHg' \
+             , 'CVP7':b'mmHg' \
+             , 'CVP8':b'mmHg' \
+             , 'FEM1':b'mmHg' \
+             , 'FEM2':b'mmHg' \
+             , 'FEM3':b'mmHg' \
+             , 'FEM4':b'mmHg' \
+             , 'FEM5':b'mmHg' \
+             , 'FEM6':b'mmHg' \
+             , 'FEM7':b'mmHg' \
+             , 'FEM8':b'mmHg' \
+             , 'ICT1':b'mmHg' \
+             , 'ICT2':b'mmHg' \
+             , 'ICT3':b'mmHg' \
+             , 'ICT4':b'mmHg' \
+             , 'ICT5':b'mmHg' \
+             , 'ICT6':b'mmHg' \
+             , 'ICT7':b'mmHg' \
+             , 'ICT8':b'mmHg' \
+             , 'PA1':b'mmHg' \
+             , 'PA2':b'mmHg' \
+             , 'PA3':b'mmHg' \
+             , 'PA4':b'mmHg' \
+             , 'PA5':b'mmHg' \
+             , 'PA6':b'mmHg' \
+             , 'PA7':b'mmHg' \
+             , 'PA8':b'mmHg' \
+             , '':b'blank' \
              }
-    scale = {'I': 2.44
-             , 'II': 2.44
-             , 'III': 2.44
-             , 'V': 2.44
-             , 'AVR': 2.44
-             , 'AVL': 2.44
-             , 'AVF': 2.44
-             , 'AR2': 0.2
-             , 'SPO2': 1.0
-             , 'RR': 0.1
-             , 'RESP': 0.1
-             , 'CVP1': 1.0
+    scale = {'I': 2.44 \
+             , 'II': 2.44 \
+             , 'III': 2.44 \
+             , 'V': 2.44 \
+             , 'AVR': 2.44 \
+             , 'AVL': 2.44 \
+             , 'AVF': 2.44  \
+             , 'SPO2': 1.0 \
+             , 'RR': 0.1 \
+             , 'RESP': 0.1 \
+             , 'AR1': 0.2 \
+             , 'AR2': 0.2 \
+             , 'AR3': 0.2 \
+             , 'AR4': 0.2 \
+             , 'AR5': 0.2 \
+             , 'AR6': 0.2 \
+             , 'AR7': 0.2 \
+             , 'AR8': 0.2 \
+             , 'CVP1': 0.2 \
+             , 'CVP2': 0.2 \
+             , 'CVP3': 0.2 \
+             , 'CVP4': 0.2 \
+             , 'CVP5': 0.2 \
+             , 'CVP6': 0.2 \
+             , 'CVP7': 0.2 \
+             , 'CVP8': 0.2 \
+             , 'FEM1': 0.2 \
+             , 'FEM2': 0.2 \
+             , 'FEM3': 0.2 \
+             , 'FEM4': 0.2 \
+             , 'FEM5': 0.2 \
+             , 'FEM6': 0.2 \
+             , 'FEM7': 0.2 \
+             , 'FEM8': 0.2 \
+             , 'ICT1': 0.2 \
+             , 'ICT2': 0.2 \
+             , 'ICT3': 0.2 \
+             , 'ICT4': 0.2 \
+             , 'ICT5': 0.2 \
+             , 'ICT6': 0.2 \
+             , 'ICT7': 0.2 \
+             , 'ICT8': 0.2 \
+             , 'PA1': 0.2 \
+             , 'PA2': 0.2 \
+             , 'PA3': 0.2 \
+             , 'PA4': 0.2 \
+             , 'PA5': 0.2 \
+             , 'PA6': 0.2 \
+             , 'PA7': 0.2 \
+             , 'PA8': 0.2 \
+             , '': 1.0 \
              }
     offset = 0
     range_high = 1
@@ -222,21 +312,18 @@ def createAdibin(data_dict, dbg=False):
     # Create units and scales fields from channel titles  passed in dict
     ############################################################################
     
+    # If the channel title being passed is not present in the units or scale
+    #  dictionaries, these statements will fail
+    
     # Channel units
     channel_units = []
     for i in range(data_dict['num_channels']):
-        try:
-            channel_units.append(units[data_dict['channel_titles'][i]])
-        except:
-            channel_units.append(b'MystUnits')
+        channel_units.append(units[data_dict['channel_titles'][i]])
         
     # Channel scales
     channel_scales = []
     for i in range(data_dict['num_channels']):
-        try:
-            channel_scales.append(scale[data_dict['channel_titles'][i]])
-        except:
-            channel_scales.append(1.0)
+        channel_scales.append(scale[data_dict['channel_titles'][i]])
             
    
     ############################################################################
@@ -247,7 +334,7 @@ def createAdibin(data_dict, dbg=False):
     bin_channel_titles = []
     for i in range(data_dict['num_channels']):
         bin_channel_titles.append(\
-            data_dict['channel_titles'][i].encode('utf-8'))
+                                data_dict['channel_titles'][i].encode('utf-8'))
     
     ############################################################################
     # Append all adibin fields to list of lists
@@ -315,8 +402,8 @@ def createAdibin(data_dict, dbg=False):
         channel_headers_format_string += ADI_CHANNEL_HEADER_FORMAT_STRING[1:]
     
     # Create placeholder buffer of the right size
-    channel_headers_buffer = bytearray((data_dict['num_channels'])\
-                                       *CHANNEL_HEADER_LENGTH)
+    channel_headers_buffer = bytearray((data_dict['num_channels']) \
+                                       * CHANNEL_HEADER_LENGTH)
     
     # Pack channel headers
     struct.pack_into(channel_headers_format_string
@@ -378,7 +465,13 @@ Write ADIBIN Function
 def writeAdibin(adibin_data, csv_filename, output_directory, dbg=False):
     
     # Create output filename
-    filename = output_directory                 + csv_filename                 + "_"                 + adibin_data['alarm_id']                 + "_"                 + adibin_data['time_since_admission']                 + ".adibin"
+    filename = output_directory \
+                + csv_filename \
+                + "_" \
+                + adibin_data['alarm_id'] \
+                + "_" \
+                + adibin_data['time_since_admission'] \
+                + ".adibin"
     
     # If directory does not exist, create it
     os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -390,6 +483,35 @@ def writeAdibin(adibin_data, csv_filename, output_directory, dbg=False):
         adibin_file.write(adibin_data['channel_headers'])
         adibin_file.write(adibin_data['channel_data'])
 
+    if dbg == True:
+        print("Writing:", filename)
+
+
+'''
+********************************************************************************
+Write CSV Row to Pickle
+********************************************************************************
+'''
+
+def pickleMe(csv_data, csv_filename, output_directory, dbg=False):
+    
+    # Create output filename
+    filename = output_directory \
+                + csv_filename \
+                + "_" \
+                + csv_data['alarm_id'] \
+                + "_" \
+                + csv_data['time_since_admission'] \
+                + ".pickle"
+
+    # If directory does not exist, create it
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
+    # Write the returned content to a file in the output directory
+    # overwrite previous file without warning
+    with open(filename, 'wb') as pickle_file:
+        pickle.dump(csv_data, pickle_file)
+        
     if dbg == True:
         print("Writing:", filename)
 
@@ -413,9 +535,11 @@ def printProgress(current_iteration, total_iterations, fill = '█'):
     
     # Create bar and message
     percent_complete_msg = round(100.0 * percent_complete, 1)
-    progress_bar = fill * filled_length                  + '-' * (bar_length - filled_length)
+    progress_bar = fill * filled_length \
+                 + '-' * (bar_length - filled_length)
     
-    sys.stdout.write('\r%s |%s| %s%% %s' %                      ('progress:'
+    sys.stdout.write('\r%s |%s| %s%% %s' % \
+                     ('progress:'
                       , progress_bar
                       , percent_complete_msg
                       , 'complete'
@@ -435,7 +559,7 @@ def csvToAdibin(csv_in_directory_path, adibin_out_directory_path, dbg=False):
     # Size of job for dbg progress bar
     if dbg == True:
         num_files_to_convert = \
-            len([name for name in os.listdir(csv_in_directory_path)
+            len([name for name in os.listdir(csv_in_directory_path)\
             if os.path.isfile(os.path.join(csv_in_directory_path, name))])
         
         current_iteration = 0
@@ -457,14 +581,25 @@ def csvToAdibin(csv_in_directory_path, adibin_out_directory_path, dbg=False):
             try:
                 csv_file_reader = csv.reader(csv_file)
                 for row in csv_file_reader:
-                    writeAdibin(createAdibin(parseCsv(row, dbg=False), dbg=False)
-                                , admission_id
-                                , adibin_out_directory_path
-                                , dbg = False
-                                )
+                    try: 
+                        writeAdibin(createAdibin(parseCsv(row, dbg=False), dbg=False)
+                                    , admission_id
+                                    , adibin_out_directory_path
+                                    , dbg = False
+                                    )
+                    except:
+                        # Create problemFile directory to catch problem files
+                        os.makedirs(os.path.dirname("./problemPickles/"), exist_ok=True)
+                        # Write csv row to pickle
+                        pickleMe(parseCsv(row, dbg=False)
+                                 , admission_id
+                                 , "./problemPickles/"
+                                 , dbg=False
+                                 )
             except:
                 # Create problemFile directory to catch problem files
                 os.makedirs(os.path.dirname("./problemFiles/"), exist_ok=True)
+                # Move problem csv file to the problemFiles directory
                 os.rename(csv_filename
                          , "./problemFiles/" + csv_basename)
 
