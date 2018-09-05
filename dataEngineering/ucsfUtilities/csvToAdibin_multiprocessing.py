@@ -17,6 +17,7 @@ import os
 import sys
 import time
 import pickle
+from multiprocessing import Pool
 
 
 '''
@@ -651,66 +652,101 @@ def printProgress(current_iteration, total_iterations, fill = '█'):
 
 '''
 *******************************************************************************
+Get CSV File Names Function Given a Directory
+*******************************************************************************
+'''
+def makeFilenameArray(in_directory_path, extension, dbg=False):
+
+    # Create an array of all filenames in the directory of chosen extension
+    filenameArray = [filename for filename in glob.glob(in_directory_path + '*.' + extension)]
+
+    if dbg == True:
+        print("number of " + extension + " files in " + in_directory_path + ": "\
+             + len(filenameArray))
+
+    return filenameArray
+
+
+'''
+*******************************************************************************
+Process CSV Files
+*******************************************************************************
+'''
+def csvToAdibinConversion(csv_filename):
+
+    # Parse admission_id from csv_filename
+    csv_basename = os.path.basename(csv_filename)
+    admission_id = csv_basename[:-4]
+    
+    # Open CSV File
+    with open(csv_filename) as csv_file:
+        
+        # Parse and write out ADIBIN for every row in the CSV
+        try:
+            csv_file_reader = csv.reader(csv_file)
+            for row in csv_file_reader:
+                try: 
+                    writeAdibin(createAdibin(parseCsv(row, dbg=False), dbg=False)
+                                , admission_id
+                                , "./generatedAdibins/"
+                                , dbg = False
+                                )
+                except:
+                    # Create problemFile directory to catch problem files
+                    os.makedirs(os.path.dirname("./problemPickles/"), exist_ok=True)
+                    # Write csv row to pickle
+                    pickleMe(parseCsv(row, dbg=False)
+                             , admission_id
+                             , "./problemPickles/"
+                             , dbg=False
+                             )
+        except:
+            # Create problemFile directory to catch problem files
+            os.makedirs(os.path.dirname("./problemFiles/"), exist_ok=True)
+            # Move problem csv file to the problemFiles directory
+            os.rename(csv_filename
+                     , "./problemFiles/" + csv_basename)
+            return False
+    return True
+
+
+'''
+*******************************************************************************
 Nicely Wrapped CSV to ADIBIN Function
 *******************************************************************************
 '''
 
-def csvToAdibin(csv_in_directory_path, adibin_out_directory_path, dbg=False):
-    
+def csvToAdibin(csv_in_directory_path, dbg=False):
+
     # Size of job for dbg progress bar
     if dbg == True:
         num_files_to_convert = \
             len([name for name in os.listdir(csv_in_directory_path)\
             if os.path.isfile(os.path.join(csv_in_directory_path, name))])
-        
+
         current_iteration = 0
         
         printProgress(current_iteration, num_files_to_convert)
-        
-    
-    # For every csv file in the csv_in_directory_path
-    for csv_filename in glob.glob(csv_in_directory_path + '*.csv'):
-        
-        # Parse admission_id from csv_filename
-        csv_basename = os.path.basename(csv_filename)
-        admission_id = csv_basename[:-4]
-        
-        # Open CSV File
-        with open(csv_filename) as csv_file:
-            
-            # Parse and write out ADIBIN for every row in the CSV
-            try:
-                csv_file_reader = csv.reader(csv_file)
-                for row in csv_file_reader:
-                    try: 
-                        writeAdibin(createAdibin(parseCsv(row, dbg=False), dbg=False)
-                                    , admission_id
-                                    , adibin_out_directory_path
-                                    , dbg = False
-                                    )
-                    except:
-                        # Create problemFile directory to catch problem files
-                        os.makedirs(os.path.dirname("./problemPickles/"), exist_ok=True)
-                        # Write csv row to pickle
-                        pickleMe(parseCsv(row, dbg=False)
-                                 , admission_id
-                                 , "./problemPickles/"
-                                 , dbg=False
-                                 )
-            except:
-                # Create problemFile directory to catch problem files
-                os.makedirs(os.path.dirname("./problemFiles/"), exist_ok=True)
-                # Move problem csv file to the problemFiles directory
-                os.rename(csv_filename
-                         , "./problemFiles/" + csv_basename)
 
 
-            if dbg == True:
-                current_iteration += 1
-                if current_iteration <= num_files_to_convert:
-                    printProgress(current_iteration, num_files_to_convert)
-                else:
-                    printProgress(1,1)
+    # Get array of filenames from csv_in_directory_path
+    csv_filenames = makeFilenameArray(csv_in_directory_path, 'csv')
+
+    p = Pool(5)
+    p.map(csvToAdibinConversion, csv_filenames)
+
+    '''
+    # For every csv file in the filename array
+    for csv_filename in csv_filenames:
+        csvToAdibinConversion(csv_filename)
+
+        # if dbg == True:
+        #     current_iteration += 1
+        #     if current_iteration <= num_files_to_convert:
+        #         printProgress(current_iteration, num_files_to_convert)
+        #     else:
+        #         printProgress(1,1)
+    '''
 
 
 '''
@@ -720,10 +756,9 @@ Do It To It
 '''
 
 csv_directory_path = "./csvFiles/"
-adibin_directory_path = "./generatedAdibins/"
 
 start_time = time.time()
-csvToAdibin(csv_directory_path, adibin_directory_path, dbg=True)
+csvToAdibin(csv_directory_path, dbg=True)
 end_time = time.time()
 printProgress(1,1)
 print("\nran in %s seconds" % (end_time - start_time))
